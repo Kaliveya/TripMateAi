@@ -1,0 +1,54 @@
+# ==========================================
+# TripMate 应用配置文件
+# 敏感信息请通过环境变量注入，不要硬编码在此文件中
+# 环境变量命名规则：大写字母 + 下划线分隔
+# ==========================================
+
+# ==========================================
+# 服务器配置
+# ==========================================
+server:
+  port: ${SERVER_PORT:8666}  # 服务监听端口，默认 8666
+
+# ==========================================
+# LangChain4j AI 模型配置
+# 使用 MiniMax 兼容 OpenAI 接口的大语言模型
+# ==========================================
+langchain4j:
+  open-ai:
+    chat-model:
+      api-key: ${MINIMAX_API_KEY}                        # MiniMax API 密钥，必填
+      base-url: ${MINIMAX_BASE_URL:https://api.minimaxi.com/v1/}  # API 基础地址
+      model-name: ${MINIMAX_MODEL_NAME:MiniMax-M2.7}    # 使用的模型名称
+      log-requests: ${AI_LOG_REQUESTS:true}              # 是否打印请求日志（生产环境建议关闭）
+      log-responses: ${AI_LOG_RESPONSES:true}            # 是否打印响应日志（生产环境建议关闭）
+      max-retries: ${AI_MAX_RETRIES:5}                   # 请求失败最大重试次数
+
+# ==========================================
+# Spring 数据源配置（PostgreSQL）
+# ==========================================
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/TripMate}  # 数据库连接地址
+    driver-class-name: org.postgresql.Driver                  # PostgreSQL 驱动类（固定值）
+    username: ${DB_USERNAME:sean}                             # 数据库用户名
+    password: ${DB_PASSWORD}                                  # 数据库密码，必填
+
+# ==========================================
+# 高德地图 API 配置
+# 用于地理位置、路线规划等地图服务
+# ==========================================
+amap:
+  api:
+    key: ${AMAP_API_KEY}                                              # 高德地图 API 密钥，必填
+    base-url: ${AMAP_BASE_URL:https://restapi.amap.com}               # 高德地图 API 基础地址
+
+# ==========================================
+# MyBatis-Plus ORM 框架配置
+# ==========================================
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true   # 开启下划线转驼峰映射（数据库字段 → Java 属性）
+  global-config:
+    db-config:
+      id-type: auto                      # 主键策略：数据库自增
