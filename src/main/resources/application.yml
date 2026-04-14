@@ -8,7 +8,7 @@
 # 服务器配置
 # ==========================================
 server:
-  port: ${SERVER_PORT:8666}  # 服务监听端口，默认 8666
+  port: ${SERVER_PORT}  # 服务监听端口
 
 # ==========================================
 # LangChain4j AI 模型配置
@@ -18,21 +18,21 @@ langchain4j:
   open-ai:
     chat-model:
       api-key: ${MINIMAX_API_KEY}                        # MiniMax API 密钥，必填
-      base-url: ${MINIMAX_BASE_URL:https://api.minimaxi.com/v1/}  # API 基础地址
-      model-name: ${MINIMAX_MODEL_NAME:MiniMax-M2.7}    # 使用的模型名称
-      log-requests: ${AI_LOG_REQUESTS:true}              # 是否打印请求日志（生产环境建议关闭）
-      log-responses: ${AI_LOG_RESPONSES:true}            # 是否打印响应日志（生产环境建议关闭）
-      max-retries: ${AI_MAX_RETRIES:5}                   # 请求失败最大重试次数
+      base-url: ${MINIMAX_BASE_URL}                      # API 基础地址
+      model-name: ${MINIMAX_MODEL_NAME}                  # 使用的模型名称
+      log-requests: ${AI_LOG_REQUESTS}                   # 是否打印请求日志（生产环境建议关闭）
+      log-responses: ${AI_LOG_RESPONSES}                 # 是否打印响应日志（生产环境建议关闭）
+      max-retries: ${AI_MAX_RETRIES}                     # 请求失败最大重试次数
 
 # ==========================================
 # Spring 数据源配置（PostgreSQL）
 # ==========================================
 spring:
   datasource:
-    url: ${DB_URL:jdbc:postgresql://localhost:5432/TripMate}  # 数据库连接地址
+    url: ${DB_URL}  # 数据库连接地址
     driver-class-name: org.postgresql.Driver                  # PostgreSQL 驱动类（固定值）
-    username: ${DB_USERNAME:sean}                             # 数据库用户名
-    password: ${DB_PASSWORD}                                  # 数据库密码，必填
+    username: ${DB_USERNAME}                             # 数据库用户名
+    password: ${DB_PASSWORD}                                  # 数据库密码
 
 # ==========================================
 # 高德地图 API 配置
@@ -41,7 +41,7 @@ spring:
 amap:
   api:
     key: ${AMAP_API_KEY}                                              # 高德地图 API 密钥，必填
-    base-url: ${AMAP_BASE_URL:https://restapi.amap.com}               # 高德地图 API 基础地址
+    base-url: https://restapi.amap.com                                # 高德地图 API 基础地址
 
 # ==========================================
 # MyBatis-Plus ORM 框架配置

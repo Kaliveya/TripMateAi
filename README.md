@@ -4,16 +4,16 @@
 
 ## 技术栈
 
-| 类别 | 技术 |
-|------|------|
-| 后端框架 | Spring Boot 3.5.13 + Java 17 |
-| ORM | MyBatis Plus 3.5.9 |
-| AI 框架 | LangChain4j 1.9.1 |
-| 大语言模型 | MiniMax M2.7 |
-| 向量数据库 | PGVector (PostgreSQL) |
-| Embedding | BGE 中文小模型（512 维）|
-| 地图服务 | 高德地图 MCP |
-| 数据导入 | LangChain4j Document Loader |
+| 类别 | 技术                                                                                                                        |
+|------|---------------------------------------------------------------------------------------------------------------------------|
+| 后端框架 | Spring Boot 3.5.13 + Java 17                                                                                              |
+| ORM | MyBatis Plus 3.5.9                                                                                                        |
+| AI 框架 | LangChain4j 1.9.1                                                                                                         |
+| 大语言模型 | MiniMax M2.7 <br/>官网/注册地址：https://www.minimaxi.com<br/>开发者控制台：https://platform.minimaxi.com/user-center/basic-information |
+| 向量数据库 | PGVector (PostgreSQL)                                                                                                     |
+| Embedding | BGE 中文小模型（512 维）                                                                                                          |
+| 地图服务 | 高德地图 MCP<br/>官网/注册地址：https://lbs.amap.com<br/>开发者控制台：https://console.amap.com/dev/key/app                                 |
+| 数据导入 | LangChain4j Document Loader                                                                                               |
 
 ## 功能特性
 
@@ -130,9 +130,8 @@ curl -X POST "http://localhost:8666/dataImport/importMdData" \
 | POST | `/dataImport/importMdData` | 导入 Markdown 到向量库 |
 
 ## 请求 / 响应格式
-
+#### 1. // POST /tripPlan/chat
 ```json
-// POST /tripPlan/chat
 {
   "sessionId": "550e8400-e29b-41d4-a716-446655440000",
   "message": "去杭州西湖玩2天，求行程安排"
